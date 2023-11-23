@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+
+*.pytest_cache
+.coverage
+.vscode
+
+*.db
+*.sqlite3
+*.log
+**/migrations/**
+
+venv
+.idea/
+
+*.json
+*.env
