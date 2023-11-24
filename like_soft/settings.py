@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # Third packages
     'rest_framework',
+    'drf_spectacular',
 
     # My apps
     'apps.users',
@@ -145,7 +146,17 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Like Soft books manager API',
+    'DESCRIPTION': 'Api for working with books. It can be used'
+                   ' to create, read, edit and delete books in our system.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SCHEMA_PATH_PREFIX': r'/api/v[0-9]'
 }
 
 CELERY_BROKER_URL = env('CELERY_BROKER_URL')
