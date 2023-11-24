@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import AdminPasswordChangeForm
 from django.contrib.auth.models import Group
 
-from users.forms import UserChangeForm, UserCreationForm
+from apps.users.forms import UserChangeForm, UserCreationForm
 
 
 @admin.register(get_user_model())
