@@ -64,21 +64,3 @@ class UserChangeForm(forms.ModelForm):
             user_permissions.queryset = user_permissions.queryset.select_related(
                 "content_type"
             )
-
-
-class LoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput())
-    password = forms.CharField(widget=forms.PasswordInput())
-
-    def clean(self):
-        email = self.cleaned_data.get('email').strip()
-        password = self.cleaned_data.get('password').strip()
-
-        # Тут можно сделать и авторизацию через username
-        if email and password:
-            user = authenticate(email=email, password=password)
-
-            if not user:
-                raise forms.ValidationError('Почта или пароль не верны')
-
-        return self.cleaned_data
