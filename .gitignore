@@ -9,6 +9,7 @@ __pycache__/
 *.sqlite3
 *.log
 **/migrations/**
+!**/migrations/__init__.py
 
 venv
 .idea/

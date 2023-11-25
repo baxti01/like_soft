@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build: ./
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: ./shell_scripts/server_run.sh
     env_file:
       - '.env'
     restart: always
@@ -11,13 +11,12 @@ services:
       - '8000:8000'
     depends_on:
       - db
-      - celery_worker
 
   db:
     image: mysql
     restart: always
-    volumes:
-      - mysql_data:/var/lib/mysql
+#    volumes:
+#      - mysql_data:/var/lib/mysql
     env_file:
       - '.env'
     ports:
@@ -37,5 +36,5 @@ services:
     depends_on:
       - redis
 
-volumes:
-  mysql_data:
+#volumes:
+#  mysql_data:
