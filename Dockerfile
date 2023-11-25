@@ -10,3 +10,6 @@ WORKDIR app/
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 
 COPY . .
+
+RUN chmod +x ./shell_scripts/server_run.sh && \
+    chmod +x ./shell_scripts/wait-for-it.sh
